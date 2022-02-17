@@ -1,15 +1,25 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
-import Layout from '../components/Layout'
+import "../styles/globals.css";
+import type { AppProps } from "next/app";
+import Layout from "../components/Layout";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return(
-    <Layout>
-    <Component {...pageProps} />
-    </Layout>
-    ) 
+function SafeHydrate({ children }) {
+  return (
+    <div suppressHydrationWarning>
+      {typeof window === "undefined" ? null : children}
+    </div>
+  );
 }
 
-export default MyApp
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <SafeHydrate>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </SafeHydrate>
+  );
+}
+
+export default MyApp;

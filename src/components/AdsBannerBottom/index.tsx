@@ -4,43 +4,25 @@ const AdsBanner = () => {
   const [show, setShow] = useState(true);
 
   return (
-    <>
-      <div
-        style={{
-          display: show === true ? "flex" : "none",
-          zIndex: 1000,
-          position: "fixed",
-          flexDirection: "column",
-          marginTop: 540,
-        }}
-      >
-        <div
-          style={{
-            flex: 1,
-            flexDirection: "column",
-            display: "flex",
-          }}
-        >
-              <div
-              style={{ width: "80%", height: 130, backgroundColor: "#C4C4C4" }}
-            >
-              <div style={{ marginLeft: 5 }}>
+     <div className="container-xxl" style={{ position: "fixed", marginTop: 540, zIndex: 100, display : show == true ? "block" : "none", }} >
+        <div className="row" style={{ marginTop: 0 }} >
+          <div className='col-3' ></div>
+          <div className='col-6' style={{ backgroundColor: "#C4C4C4", height: 130 }} >
+          <div style={{ marginLeft: 5 }}>
              <button type="button" className="close" aria-label="Close" onClick={()=> setShow(false) }  >
                 <span aria-hidden="true">X</span>
               </button>
              </div>
-            </div>
-
-            <div
-              style={{ width: "80%", height: 130, backgroundColor: "#C4C4C4", marginTop: 10 }}
-            >
-            
-            </div>
-
+          </div>
+          <div className='col-3' ></div>
         </div>
-      </div>
-    </>
-  );
+        <div className="row" style={{ marginTop: 10 }} >
+          <div className='col-3' ></div>
+          <div className='col-6' style={{ backgroundColor: "#C4C4C4", height: 130 }} ></div>
+          <div className='col-3' ></div>
+        </div>
+     </div>
+  )
 };
 
 export default AdsBanner;
